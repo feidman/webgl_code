@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Create grids with threejs</title>
+        <script src="js/Three.js" data-ke-src="js/Three.js"></script>
+        <script src="examples/js/libs/stats.min.js"></script>
+        <style type="text/css">
+            div#canvas-frame {
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                height: 1200px;
+                background-color: #EEEEEE;
+                border: 2px dashed #ff0000;
+            }
+        </style>
+        <script>
+            var renderer;
+            function initThree() {
+                width = document.getElementById('canvas-frame').clientWidth;
+                height = document.getElementById('canvas-frame').clientHeight;
+                renderer = new THREE.WebGLRenderer({
+                    antialias : true
+                });
+                renderer.setSize(width, height);
+                document.getElementById('canvas-frame').appendChild(renderer.domElement);
+                renderer.setClearColor(0xFFFFFF, 1.0);
+            }
+
+            var camera;
+            function initCamera() {
+                camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
+                camera.position.x = 0;
+                camera.position.y = 1500;
+                camera.position.z = 0;
+                // camera.up.x = 0;
+                // camera.up.y = 0;
+                // camera.up.z = 1;
+                camera.lookAt({
+                    x : 0,
+                    y : 0,
+                    z : 0
+                });
+            }
+            var stats;
+            function initStats(){
+                stats = new Stats();//no THREE. add here
+                stats.domElement.style.position = "absolute";
+                stats.domElement.style.left = 0;
+                stats.domElement.style.top = 0;
+                document.getElementById('canvas-frame').appendChild(stats.domElement);                
+            }
+            var scene;
+            function initScene() {
+                scene = new THREE.Scene();
+            }
+            var light;
+            function initLight() {
+                light = new THREE.DirectionalLight(0xFF0000, 1.0, 0);
+                light.position.set(100, 100, 200);
+                scene.add(light);
+            }
+            var cubeMesh;
+            var group = THREE.Group();
+            function initObject() {
+                var geometry = new THREE.Geometry();
+                geometry.vertices.push( new THREE.Vector3( -500, 0, 0 ));
+                geometry.vertices.push( new THREE.Vector3( 500, 0, 0 ));
+                var material = new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.2} );
+                for ( var i = 0; i <=20; i ++){
+                    var line_h = new THREE.Line(geometry, material);
+                    line_h.position.z = (i*50) - 500;
+                    scene.add(line_h);
+                    var line_v = new THREE.Line(geometry, material);
+                    line_v.position.x = (i*50) - 500;
+                    line_v.rotation.y = 90 * Math.PI / 180;
+                    scene.add(line_v);    
+                }
+            }
+            function render()
+            {
+                renderer.clear();
+                renderer.render(scene, camera);
+                requestAnimationFrame(render);
+                stats.update();
+            }
+            function threeStart() {
+                initThree();
+                initStats();
+                initCamera();
+                initScene();
+                initLight();
+                initObject();
+                render();
+            }
+    </head>
+
+    <body onload="threeStart();">
+        <div id="canvas-frame"></div>
+    </body>
+</html>

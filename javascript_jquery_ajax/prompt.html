@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prompt a var</title>
+	<style type="text/css">
+	div {
+		color: red;
+		font-size: 3em;
+		margin: 0px;
+		background-color: lightgrey;
+		text-align: center;
+	}
+	div .author {
+		color: grey;
+		font-size: 22px;
+	}
+	.js {
+		font-size: 5em;
+	}
+	</style>
+
+</head>
+<body>
+	<div>
+		<p>JavaScript & jQuery</p>
+		<p class="author">-jsgou<p>
+	</div>
+	<h1>Prompt and input a var </h1>
+	<hr>
+	<p> JavaScript goes here</p>
+	<script type="text/javascript">
+		var shoes = prompt('How many shoes do you have','');
+		var coats = prompt('How many coats do you have','');
+		var num = Number(shoes) + Number(coats);//type change;
+
+		window.alert(num);
+	</script>
+	<p>JavasScript ends</p>
+	<hr>
+</body>
+</html>

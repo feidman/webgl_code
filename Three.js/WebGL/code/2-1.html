@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        canvas { width: 100%; height: 100%; }
+        body {
+            border: 20px dashed pink;
+         background-color: #FFFFFF;}
+    </style>
+    <script src="js/three.js"></script>
+    <script src="examples/js/libs/stats.min.js"></script>
+
+</head>
+
+<body>
+    <script>
+
+
+        var scene = new THREE.Scene();
+        
+        var stats = new Stats();
+        document.body.appendChild(stats.domElement);
+		
+        // var camera = new THREE.OrthographicCamera(window.innerWidth/-2, window.innerWidth / 2, window.innerHeight / -2, window.innerHeight / 2, 101, 500000);
+		var camera = new THREE.PerspectiveCamera( 100, window.innerWidth / window.innerHeight, 1, 1000 );
+
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setClearColor('#FFFFFF');
+
+		
+        renderer.setSize(window.innerWidth, window.innerHeight);
+		
+        document.body.appendChild(renderer.domElement);
+
+        
+        var geometry = new THREE.CubeGeometry(100,100,100);
+        var geometry2 = new THREE.CubeGeometry( 100,100,100);
+        var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+        var cube = new THREE.Mesh(geometry, material); 
+        scene.add(cube);
+        var cube2 = new THREE.Mesh(geometry2, material);
+        scene.add(cube2);
+        
+        cube2.position.x = 0;
+        camera.position.z = 200;
+        camera.lookAt(0,0,0);
+        function render() {
+            requestAnimationFrame(render);
+            // cube.rotation.x += 0.01; //The number is the speed of the rotation
+            // cube.rotation.y += 0.1;
+            // cube.rotation.z += 0.01;
+            // cube2.position.x += 1;
+            camera.position.z += 1;
+            renderer.render(scene, camera);
+            stats.update();
+        }
+        render();
+    </script>
+</body>
+</html>

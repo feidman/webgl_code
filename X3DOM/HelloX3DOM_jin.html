@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My first X3DOM page</title>
+    <script type="text/javascript" src="http://www.x3dom.org/download/x3dom.js">
+
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/x3dom.css">
+    </link>
+    <style>
+        x3d
+        {
+            border:2px solid darkorange;
+            background: rgba(0,128,128,0.4)
+        }
+    </style>
+            <script>
+                function changeColor()
+                {
+                    if(document.getElementById("color").getAttribute('diffuseColor')=="1 1 0")
+                        document.getElementById("color").setAttribute('diffuseColor', '0 0 1');
+                    else
+                        document.getElementById("color").setAttribute('diffuseColor', '1 0 0');
+                }
+            </script>
+</head>
+
+<body>
+
+
+    <h1>Hello, X3DOM!</h1>
+    <p align="left">
+        by jsgou
+    </p>
+    <p>
+        This is my first html page with some 3d objects.
+    </p>
+    <x3d showStat="true" PrimitiveQuality="low" width="600px" height="400px">
+        <scene>
+            <shape onclick="alert('i am a box!');">
+                <appearance>
+                    <material id="color" diffuseColor="1 1 0"></material>
+                </appearance>
+                <box></box>
+            </shape>
+            <transform translation="-3 0 0">
+                <shape>
+                <appearance>
+                    <material diffuseColor="0 1 0"></material>
+                </appearance>
+                <cone></cone>
+                    </shape>
+            </transform>
+
+            <transform translation="3 0 0">
+                <shape onclick="changeColor()">
+                <appearance>
+                    <material diffuseColor="0 0 1"></material>
+                </appearance>
+                <sphere></sphere>
+                    </shape>
+            </transform>
+        </scene>
+    </x3d>
+</body>
+</html>

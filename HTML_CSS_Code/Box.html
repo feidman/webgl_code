@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3 盒子模型</title>
+    <style type="text/css">
+        .box {
+            width: 800px;
+            height: 600px;
+            /*border-color: green;*/
+            border: none;
+        }
+        div {
+            /*width: 1300px;*/
+            /*height: 300px;*/
+            /*//border 单个属性设置*/
+            /*border-width: 1px;*/
+            /*border-style: dashed;*/
+            /*border-color: #ff0000;*/
+            /*border-top: 1px solid green;*/
+            /*// border 单个属性连写*/
+            /*border-left: 2px dashed pink;*/
+            /*border-right: 2px dashed pink;*/
+            /*border-bottom:1px dotted red;*/
+
+            /*//border 属性连写*/
+            /*border: solid 2px cyan;*/
+
+        }
+
+        input{
+            border: none;
+            border-bottom: 1px dotted rosybrown;
+
+            outline-style: hidden;
+        }
+
+        input:hover{
+            background-color: antiquewhite;
+        }
+        .paddingstyle1{
+            border: 1px dotted red;
+            width: 400px;
+            height: 600px;
+            padding: 100px;
+            background-color: #cccccc;
+
+        }
+        .paddingstyle2,.dimension{
+            border: 1px dashed green;
+            background-color: #db4732;
+
+            width: 400px;
+            height: 200px;
+            padding: 10px 20px 30px 1px;
+        }
+        .dimension{
+            background-color: #ddcccc;
+        }
+        .marginsytle{
+            background-color: greenyellow;
+            margin-left: 20px;
+            border-left: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="username" type="text">
+        <label>username</label>:  <input title="please input your name">
+        <br>
+        <br>
+        <label>email</label>: <input type="email" class="email"><br>
+
+        <label>Search</label>: <input type="text" class="search">
+
+    </div>
+
+
+
+
+    <div class="box" title="讲义">
+    <h1>3 盒子模型</h1>
+    <h2>3.1 主要作用</h2>
+        进行网页布局
+    <h2>3.2 网页中的盒子结构 </h2>
+        <h3>3.2.1 边框Board</h3>
+        内容与边框之间的距离：内边距
+        属性：border-width；border-style(solid,dotted,dashed);border-color;
+
+        边框与页面边界之间的距离：外边距
+        <P>
+            border 属性设置
+            - 单独设置：border-widht: 1px; border-color: red;
+            - 集中设置: border-top: 1px solid green;
+        </P>
+        <br>
+        border 属性连写 border: 1px solid green;
+        <hr>
+
+    </div>
+    <div class="paddingstyle1">
+        <h3>3.2.2内边框Padding</h3>
+        - padding-left:<br>
+        - padding-right:<br>
+        - padding-top:<br>
+        - padding-bottom:<br>
+        <div class="paddingstyle2">
+            -属性连写的顺序是Top，right，bottom，left<br>
+            padding:10px 20px 30px 1px<br><br>
+
+            这些内容是用来填充的这些内容是用来填充的这些内容是用来填充的这些内容是用来填充的这些内容是用来填充的
+            这些内容是用来填充的这些内容是用来填充的这些内容是用来填充的这些内容是用来填充的这些内容是用来填充的
+            这些内容是用来填充的这些内容是用来填充的这些内容是用来填充的这些内容是用来填充的这些内容是用来填充的
+        </div>
+        <div class="marginsytle">
+            -这里是margin效果<br>
+            -请看此边框的左边
+        </div>
+        <div class="dimension">
+            -盒子尺寸的计算<br>
+            -与padding有关<br>
+            -与margin有关<br>
+        </div>
+    </div>
+
+    <div>
+
+    </div>
+</body>
+</html>
