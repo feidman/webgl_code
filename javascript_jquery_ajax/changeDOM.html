@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Change DOM by js</title>
+</head>
+<body>
+	<p id='p1'>Hello world</p>
+
+	<script>
+		var j = confirm('Do you want change the text?');
+		if(j==true){
+			document.getElementById('p1').innerHTML = "New text by js"
+		}
+		else{
+
+		}
+	</script>
+	<p>通过js修改dom内容</p>
+</body>
+</html>
